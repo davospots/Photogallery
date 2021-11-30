@@ -15,6 +15,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
+
 import os
 
 
@@ -29,6 +30,12 @@ cloudinary.config(
   api_secret = "XyZLXLsieUQYc9uP7GsdfaLYL5Q" 
 )
 
+CLOUDINARY_STORAGE = {
+             'CLOUD_NAME': 'davos',
+             'API_KEY': '217231455461623',
+             'API_SECRET': 'XyZLXLsieUQYc9uP7GsdfaLYL5Q'
+            }
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -37,8 +44,7 @@ SECRET_KEY = 'django-insecure-rj1$dw5e8b%311pg7bt9aop+1es0v*%o+n=zteg34=*-edw22p
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'photodavos.herokuapp.com']
 
 
@@ -55,6 +61,7 @@ INSTALLED_APPS = [
     'photos.apps.PhotosConfig',
     'bootstrap5',
     'cloudinary',
+    'cloudinary_storage'
 
     
 ]
@@ -148,6 +155,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT=os.path.join(BASE_DIR, 'static')
