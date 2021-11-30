@@ -15,7 +15,7 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 import dj_database_url
-import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,15 +36,15 @@ cloudinary.config(
 SECRET_KEY = 'django-insecure-rj1$dw5e8b%311pg7bt9aop+1es0v*%o+n=zteg34=*-edw22p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOST=['photogallerydavos.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise.runserver_nostatic'
+    
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,11 +54,12 @@ INSTALLED_APPS = [
     'photos.apps.PhotosConfig',
     'bootstrap5',
     'cloudinary',
+
     
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware'
+    
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -155,3 +156,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 WHITENOISE_USE_FINDERS = True
+
+
+
+import django_heroku
+django_heroku.settings(locals())
