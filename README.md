@@ -74,4 +74,4 @@ The following languages have been used on this project:
 - Bootstrap
 - Python
 - Django
-- PostgreSQL
+- Sqlite3
