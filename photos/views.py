@@ -52,7 +52,7 @@ def addPhoto(request):
     return render(request, 'photos/add.html', context)
 
 def updatePhoto(request, pk):
-    photo = Photo.objects.get(id = pk)
+    photo = Photo.objects.filter(id = pk)
     categories = Category.objects.all()
 
     if request.method == 'POST':
