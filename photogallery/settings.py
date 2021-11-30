@@ -22,11 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # setup cloudinary credentials for django-cloudinary
-cloudinary.config(
-    cloud_name='davos',
-    api_key='217231455461623',
-    api_secret='XyZLXLsieUQYc9uP7GsdfaLYL5Q',
-    secure=True
+cloudinary.config( 
+  cloud_name = "davos", 
+  api_key = "217231455461623", 
+  api_secret = "XyZLXLsieUQYc9uP7GsdfaLYL5Q" 
 )
 
 # Quick-start development settings - unsuitable for production
