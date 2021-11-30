@@ -1,5 +1,8 @@
 from django.shortcuts import render,redirect
-from .models import Category, Photo
+
+import photos
+from .models import Category, Photo 
+import os
 
 # Create your views here.
 def gallery(request):
@@ -47,3 +50,34 @@ def addPhoto(request):
 
     context = {'categories': categories}
     return render(request, 'photos/add.html', context)
+
+def updatePhoto(request, pk):
+    photo = Photo.objects.get(id = pk)
+    categories = Category.objects.all()
+
+    if request.method == 'POST':
+        data = request.POST
+        images = request.FILES.getlist('images')
+
+        if data['category'] != 'none':
+            category = Category.objects.get(id=data['category'])
+        elif data['category_new'] != '':
+            category, created = Category.objects.get_or_create(
+            
+                name=data['category_new'])
+        else:
+            category = None
+
+        for image in images:
+            photo = Photo.objects.create(
+                category=category,
+                description=data['description'],
+                image=image,
+            )
+
+        
+
+        return redirect('gallery')
+
+    context = {'categories': categories}
+    return render(request, 'photos/update.html', context)
