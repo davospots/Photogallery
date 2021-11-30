@@ -31,10 +31,12 @@ cloudinary.config(
 )
 
 CLOUDINARY_STORAGE = {
-             'CLOUD_NAME': 'davos',
-             'API_KEY': '217231455461623',
-             'API_SECRET': 'XyZLXLsieUQYc9uP7GsdfaLYL5Q'
-            }
+    'CLOUD_NAME': 'davos',
+    'API_KEY': '217231455461623',
+    'API_SECRET': 'XyZLXLsieUQYc9uP7GsdfaLYL5Q'
+}
+
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -45,7 +47,7 @@ SECRET_KEY = 'django-insecure-rj1$dw5e8b%311pg7bt9aop+1es0v*%o+n=zteg34=*-edw22p
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'photodavosgall.herokuapp.com']
 
 
 # Application definition
