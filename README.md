@@ -15,6 +15,7 @@ A simple web application where the user can upload , save images and search by c
 - Pip
 - Python 3.10
 - Sqlite3
+- PostgreSQL
 - Cloudinary (for image upload) 
 ```
    - CLOUD_NAME 
@@ -75,3 +76,4 @@ The following languages have been used on this project:
 - Python
 - Django
 - Sqlite3
+- PostgreSQL
