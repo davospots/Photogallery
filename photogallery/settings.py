@@ -44,8 +44,8 @@ SECRET_KEY = 'django-insecure-rj1$dw5e8b%311pg7bt9aop+1es0v*%o+n=zteg34=*-edw22p
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ['127.0.0.1', 'photodavos.herokuapp.com']
+DEBUG = False
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
 
 # Application definition
@@ -61,7 +61,8 @@ INSTALLED_APPS = [
     'photos.apps.PhotosConfig',
     'bootstrap5',
     'cloudinary',
-    'cloudinary_storage'
+    'cloudinary_storage',
+    'whitenoise.runserver_nostatic'
 
     
 ]
@@ -112,6 +113,7 @@ DATABASES = {
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
+WHITENOISE_USE_FINDERS = True
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -165,7 +167,7 @@ STATIC_ROOT=os.path.join(BASE_DIR, 'static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-WHITENOISE_USE_FINDERS = True
+
 
 
 
