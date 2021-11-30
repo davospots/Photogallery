@@ -54,7 +54,7 @@
                         </div>
                         <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                         <a href="{% url 'update' photo.id %}" class="btn btn-outline-dark btn-sm m-1">Update</a>
-                        <a class="btn btn-outline-dark btn-sm m-1" href="">Delete</a>
+                        <a href="{% url 'delete' photo.id %}" class="btn btn-outline-dark btn-sm m-1" href="">Delete</a>
                     </div>
                 </div>
                 {% empty %}

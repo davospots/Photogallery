@@ -56,6 +56,8 @@ def updatePhoto(request, pk):
     categories = Category.objects.all()
 
     if request.method == 'POST':
+
+        
         data = request.POST
         images = request.FILES.getlist('images')
 
@@ -69,7 +71,8 @@ def updatePhoto(request, pk):
             category = None
 
         for image in images:
-            photo = Photo.objects.create(
+            photo = Photo.objects.update(
+                
                 category=category,
                 description=data['description'],
                 image=image,
@@ -80,4 +83,12 @@ def updatePhoto(request, pk):
         return redirect('gallery')
 
     context = {'categories': categories}
-    return render(request, 'photos/update.html', context)
+    return render(request, 'photos/update.html', context, )
+
+
+def deletePhoto(request,pk) :
+    photo =Photo.objects.filter(id=pk)
+    photo.delete()
+    
+    return redirect('gallery')
+
