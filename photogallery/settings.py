@@ -11,9 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
+
 import dj_database_url
 
 import os
@@ -24,17 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # setup cloudinary credentials for django-cloudinary
-cloudinary.config( 
-  cloud_name = "davos", 
-  api_key = "217231455461623", 
-  api_secret = "XyZLXLsieUQYc9uP7GsdfaLYL5Q" 
-)
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'davos',
-    'API_KEY': '217231455461623',
-    'API_SECRET': 'XyZLXLsieUQYc9uP7GsdfaLYL5Q'
-}
 
 
 
@@ -62,8 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photos.apps.PhotosConfig',
     'bootstrap5',
-    'cloudinary',
-    'cloudinary_storage',
+    
     'whitenoise.runserver_nostatic'
 
     
@@ -159,7 +145,7 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-DEFAULT_FILE_STORAGE='cloudinary_storage.storage.MediaCloudinaryStorage'
+
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT=os.path.join(BASE_DIR, 'static')
