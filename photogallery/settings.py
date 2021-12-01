@@ -47,7 +47,7 @@ SECRET_KEY = 'django-insecure-rj1$dw5e8b%311pg7bt9aop+1es0v*%o+n=zteg34=*-edw22p
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['127.0.0.1', 'photodavosgall.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'photodavosgall.herokuapp.com','localhost']
 
 
 # Application definition
@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photos.apps.PhotosConfig',
     'bootstrap5',
-    
+    'cloudinary',
     'cloudinary_storage',
     'whitenoise.runserver_nostatic'
 
