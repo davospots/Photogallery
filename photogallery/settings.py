@@ -62,7 +62,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'photos.apps.PhotosConfig',
     'bootstrap5',
-    'cloudinary',
+    
     'cloudinary_storage',
     'whitenoise.runserver_nostatic'
 
