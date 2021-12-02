@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main>
+     
+  <div class="album py-5 bg-light">
+    <div class="container">
+        <a href="{% url 'add-album' %}" class="btn btn-success btn-sm">Add Album</a>
+      <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4">
+        {% if data %}
+        {% for album in data %}
+        <div class="col">
+            <div class="card shadow-sm">
+              <a href="{% url 'photos' album.id %}"><img style="width: 100%; height: 100%;" src="{{album.album_image.url}}" /><a href="#">
+              <div class="card-body">
+                <p class="card-text"><a href="{% url 'photos' album.id %}">{{album.title}}</a></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a href="{% url 'photos' album.id %}" class="btn btn-outline-primary">View</a>
+                    <a href="{% url 'update-album' album.id %}" class="btn btn-outline-info">Edit</a>
+                    <a class="btn btn-outline btn-danger" onclick="return confirm('Are you sure you want to delete this album, it will also delete all photos of this album?')" href="{% url 'delete-album' album.id %}">Delete</a>
+                  </div>
+                  <small class="text-muted">{{album.total_photos}} photos</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+
+  
+</main>
+{% endblock %}
+
+
+
