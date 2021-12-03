@@ -8,7 +8,6 @@ urlpatterns=[
 	path('',views.home,name='home'),
 	path('photos/<int:album_id>',views.photos,name='photos'),
 	path('add-album',views.add_album,name='add-album'),
-	path('dashboard',views.dashboard,name='dashboard'),
 	path('update-album/<int:id>',views.update_album,name='update-album'),
 	path('delete-album/<int:id>',views.delete_album,name='delete-album'),
 	path('photo-list/<int:album_id>',views.photo_list,name='photo_list'),

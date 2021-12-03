@@ -14,10 +14,7 @@ def photos(request,album_id):
 	return render(request, 'photos-list.html',{'data':data,'album':album})
 
 
-def dashboard(request):
-	totalAlbums=Album.objects.filter(user=request.user).count()
-	totalPhotos=Photos.objects.filter(album__user=request.user).count()
-	return render(request, 'dashboard.html',{'totalAlbums':totalAlbums,'totalPhotos':totalPhotos})
+
 
 
 def update_album(request,id):
