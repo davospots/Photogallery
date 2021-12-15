@@ -14,9 +14,6 @@ def photos(request,album_id):
 	return render(request, 'photos-list.html',{'data':data,'album':album})
 
 
-
-
-
 def update_album(request,id):
 	album=Album.objects.get(id=id)
 	msg=''
